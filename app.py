@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from chatbot.rag_chatbot import RAGChatbot
 
 app = Flask(__name__)
@@ -9,6 +9,9 @@ def create_app(wordpress_base_url):
     chatbot = RAGChatbot()
     chatbot.initialize(wordpress_base_url)
 
+@app.route('/')
+def home():
+    return render_template('index.html')
 
 ## WHEN YOU PASS THE QUERY TO THE CHATBOT THIS HITS THE CHATBOTS PROCESS_QUERY FUNCTION ###
     @app.route('/query', methods=['POST'])
