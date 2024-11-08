@@ -1,7 +1,7 @@
-### RAG chatbot for WordPress website
+## RAG CHATBOT FOR WORDPRESS WEBSITES
 
-
-**This project consists of two main components:**
+### ------------------------------------------------
+**This project consists:**
 
 1. The Chatbot WordPress Plugin:
    - This plugin will be integrated into a WordPress website.
@@ -31,20 +31,20 @@ The high-level flow is:
 
 This separation of concerns between the WordPress plugin and the Flask application allows for better modularity, maintainability, and flexibility in the overall system.
 
-
+### ------------------------------------------------
 
 
 ### THE KEY COMPONENTS ARE - 
 
 
-## 1. CHATBOT AS A PACKAGE:
+**1. Chatbot as a package:**
 
 The chatbot code will be packaged as a reusable Python package that can be installed using setup.py.
 This will allow the chatbot functionality to be easily integrated into other applications.
 
 
 
-## 2. FLASK APPLICATION:
+**2. Flask Application:**
 
 The Flask application will be the main entry point for handling user queries.
 It will be responsible for initializing the chatbot instance using the URL provided by the WordPress plugin.
@@ -56,43 +56,43 @@ It will receive the chatbot's responses from the Flask application and display t
 
 
 
-## 3. WordPress RAG Chatbot
+**3. WordPress RAG Chatbot:**
 
 A sophisticated chatbot that combines Retrieval-Augmented Generation (RAG) with Chain of Thought reasoning to provide intelligent responses based on WordPress content. The chatbot fetches content from WordPress sites, processes it through various embedding and search mechanisms, and generates well-reasoned responses using OpenAI's GPT models.
 
 
 The system consists of several key components working together:
 
-**1. Content Retrieval (WordPressContentFetcher)**
+1. Content Retrieval (WordPressContentFetcher)-
 - Fetches posts from WordPress sites using the WP REST API
 - Implements robust error handling and retry mechanisms
 - Cleans HTML content to extract meaningful text
 - Includes rate limiting to prevent server overload
 
-**2. Text Processing**
+2. Text Processing-
 - Splits large texts into manageable chunks using RecursiveCharacterTextSplitter
 - Maintains context through configurable chunk overlap
 - Removes HTML artifacts and normalizes text formatting
 
-**3. Vector Storage and Search (VectorStore)**
+3. Vector Storage and Search (VectorStore)-
 - Uses SentenceTransformers for generating embeddings
 - Implements FAISS for efficient similarity search
 - Stores and indexes processed text chunks
 - Enables quick retrieval of relevant content
 
-**4. Chain of Thought Processing**
+4. Chain of Thought Processing-
 - Implements explicit reasoning steps for query processing
 - Uses OpenAI's GPT-3.5-turbo model
 - Breaks down complex queries into logical steps
 - Refines responses through structured reasoning
 
-**5. Response Generation**
+5. Response Generation-
 The chatbot processes queries in three stages:
 1. Initial Response: Generates a first draft based on retrieved content
 2. Thought Steps: Develops explicit reasoning steps
 3. Final Response: Refines the answer based on the reasoning process
 
-## Key Features
+### Key Features
 
 - **Robust Error Handling**: Implements retry mechanisms and graceful error recovery
 - **Efficient Content Processing**: Uses chunking and vector search for fast retrieval
