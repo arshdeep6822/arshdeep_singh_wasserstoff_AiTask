@@ -1,0 +1,1 @@
+<!-- This file is empty, as it's just a placeholder for any custom templates used by the WordPress plugin -->
