@@ -3,10 +3,8 @@ numpy
 faiss-cpu
 sentence-transformers
 torch
-bs4
+beautifulsoup4
 langchain
 langchain_community
 openai
 python-dotenv
-Flask
--e .

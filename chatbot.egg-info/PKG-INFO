@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: chatbot
+Version: 1.0.0
+Summary: A chatbot powered by WordPress content
+Home-page: https://github.com/arshdeep6822/arshdeep_singh_wasserstoff_AiTask
+Author: Arshdeep Singh
+Author-email: deeparsh618@gmail.com
+Requires-Dist: requests
+Requires-Dist: numpy
+Requires-Dist: faiss-cpu
+Requires-Dist: sentence-transformers
+Requires-Dist: torch
+Requires-Dist: beautifulsoup4
+Requires-Dist: langchain
+Requires-Dist: langchain_community
+Requires-Dist: openai
+Requires-Dist: python-dotenv
