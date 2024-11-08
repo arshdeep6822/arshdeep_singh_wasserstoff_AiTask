@@ -10,7 +10,7 @@ def create_app(wordpress_base_url):
     chatbot.initialize(wordpress_base_url)
 
 
-## WHEN YOU PASS THE QUERY TO THE CHATBOT THIS HITS THE CHATBOTS PROCESS_QUERY FUNCTION ##
+## WHEN YOU PASS THE QUERY TO THE CHATBOT THIS HITS THE CHATBOTS PROCESS_QUERY FUNCTION ###
     @app.route('/query', methods=['POST'])
     def process_query():
         query = request.json['query']
