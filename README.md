@@ -88,8 +88,11 @@ The system consists of several key components working together:
 
 5. Response Generation-
 The chatbot processes queries in three stages:
+
 stage 1 - Initial Response: Generates a first draft based on retrieved content
+
 stage 2 - Thought Steps: Develops explicit reasoning steps
+
 stage 3 - Final Response: Refines the answer based on the reasoning process
 
 ### Key Features
