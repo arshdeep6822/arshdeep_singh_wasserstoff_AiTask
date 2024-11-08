@@ -1,4 +1,6 @@
 ## RAG CHATBOT FOR WORDPRESS WEBSITES
+<img width="1227" alt="Screenshot 2024-11-09 at 1 38 54 AM" src="https://github.com/user-attachments/assets/bd58ce91-cb79-48ba-a84f-0c33d8b0028a">
+
 
 ### ------------------------------------------------
 **This project consists:**
