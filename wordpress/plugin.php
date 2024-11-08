@@ -10,7 +10,7 @@ Author URI: https://example.com
 class ChatbotPlugin {
     private $api_url;
     public function __construct() {
-        $this->api_url = get_site_url() . '/query';
+        $this->api_url = get_site_url() . '/query';        ## GETS THE URL OF THE SITE THIS PLUGIN IS PLUGGED UPON ##
         add_action('wp_footer', array($this, 'render_chatbot'));
         add_shortcode('chatbot', array($this, 'chatbot_shortcode'));
     }

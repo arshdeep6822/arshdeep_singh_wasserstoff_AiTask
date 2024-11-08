@@ -9,6 +9,8 @@ def create_app(wordpress_base_url):
     chatbot = RAGChatbot()
     chatbot.initialize(wordpress_base_url)
 
+
+## WHEN YOU PASS THE QUERY TO THE CHATBOT THIS HITS THE CHATBOTS PROCESS_QUERY FUNCTION ##
     @app.route('/query', methods=['POST'])
     def process_query():
         query = request.json['query']
@@ -19,5 +21,6 @@ def create_app(wordpress_base_url):
 
 if __name__ == '__main__':
     # You'll need to pass your own WORDPRESS_BASE_URL when running the app if you are not retreiving it from the Wordpress Plugin
+    ## OTHERWISE THIS WILL USE THE WORDPRESS URL RETRIEVED FROM THE WORDPRESS PLUGIN ##
     app = create_app(None)
     app.run(debug=True)
