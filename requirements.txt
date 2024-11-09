@@ -12,3 +12,4 @@ flask
 Flask
 -e .
 flask-cors
+six
