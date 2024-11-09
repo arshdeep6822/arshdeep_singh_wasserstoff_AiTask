@@ -11,20 +11,19 @@
 
 **1. Chatbot as a package:**
 
-The chatbot code will be packaged as a reusable Python package that can be installed using setup.py.
-This will allow the chatbot functionality to be easily integrated into other applications.
+The chatbot code is packaged as a reusable Python package that can be installed using setup.py.
 
 
 
 **2. Flask Application:**
 
-The Flask application will be the main entry point for handling user queries.
-It will be responsible for initializing the chatbot instance using the URL provided by the WordPress plugin.
-It will pass the user queries to the chatbot's generate_response method and return the responses back to the WordPress plugin.
+The Flask application is the main entry point for handling user queries.
+It is responsible for initializing the chatbot instance using the URL provided by the WordPress plugin.
+It passes the user queries to the chatbot's generate_response method and returns the responses back to the WordPress plugin.
 WordPress Plugin:
-The WordPress plugin will be responsible for integrating the chatbot functionality into the WordPress site.
-It will fetch the website URL dynamically and pass it to the Flask application.
-It will receive the chatbot's responses from the Flask application and display them to the user.
+The WordPress plugin is responsible for integrating the chatbot functionality into the WordPress site.
+It fetches the website URL dynamically and passes it to the Flask application.
+It recieves the chatbot's responses from the Flask application and display them to the user.
 
 
 
