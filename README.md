@@ -1,36 +1,7 @@
 ## RAG CHATBOT FOR WORDPRESS WEBSITES
 
 
-### ------------------------------------------------
-**This project consists:**
 
-1. The Chatbot WordPress Plugin:
-   - This plugin will be integrated into a WordPress website.
-   - The key responsibilities of the WordPress plugin are:
-     - Provide a way to integrate the existing chatbot functionality into the WordPress site.
-     - Fetch the website URL dynamically based on the site the plugin is deployed on.
-     - Pass the dynamic website URL to the Flask application.
-
-2. The Flask Application:
-   - This is a separate component from the WordPress plugin.
-   - The Flask application is responsible for the chatbot-specific functionality.
-   - The main tasks of the Flask application are:
-     - Initialize the chatbot instance using the website URL provided by the WordPress plugin.
-     - Handle user queries and pass them to the chatbot's `generate_response` method.
-     - Return the chatbot's responses back to the user.
-
-The high-level flow is:
-
-1. The user interacts with the chatbot interface on the WordPress site.
-2. The WordPress plugin fetches the website URL dynamically.
-3. The WordPress plugin passes the website URL to the Flask application.
-4. The Flask application initialises the chatbot instance using the provided URL.
-5. The user's queries are sent to the Flask application.
-6. The Flask application passes the queries to the chatbot's `generate_response` method.
-7. The chatbot's responses are returned to the Flask application.
-8. The Flask application sends the responses back to the WordPress plugin, which displays them to the user.
-
-This separation of concerns between the WordPress plugin and the Flask application allows for better modularity, maintainability, and flexibility in the overall system.
 
 ### ------------------------------------------------
 
