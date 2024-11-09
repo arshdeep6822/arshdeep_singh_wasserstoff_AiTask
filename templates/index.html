@@ -1,24 +1,19 @@
-<!-- templates/index.html -->
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chatbot Interface</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>Chatbot Test Interface</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/chatbot-widget.css') }}">
 </head>
 <body>
     <div class="container">
-        <h1>Welcome to the Chatbot</h1>
-        <form id="query-form" method="POST" action="/process-query">
-            <label for="query">Enter your query:</label>
-            <input type="text" id="query" name="query" required>
-            <button type="submit">Submit</button>
-        </form>
-        <div id="response">
-            <!-- Area where responses will be displayed -->
+        <div id="chatbot-container">
+            <div id="chatbot-messages"></div>
+            <form id="chatbot-form">
+                <input type="text" id="query" placeholder="Ask a question...">
+                <button type="submit">Send</button>
+            </form>
         </div>
     </div>
-    <script src="{{ url_for('static', filename='css/styles.css') }}"></script>
+    <script src="{{ url_for('static', filename='js/chatbot.js') }}"></script>
 </body>
 </html>

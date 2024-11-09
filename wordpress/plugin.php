@@ -1,55 +1,79 @@
 <?php
 /*
-Plugin Name: Chatbot Plugin
-Plugin URI: https://example.com/chatbot-plugin
-Description: Integrate the chatbot functionality into WordPress
+Plugin Name: WordPress Flask Chatbot
+Description: A chatbot powered by Flask and RAG
 Version: 1.0
-Author: Your Name
-Author URI: https://example.com
+Author: Arshdeep Singh
 */
-class ChatbotPlugin {
-    private $api_url;
+
+if (!defined('ABSPATH')) exit;
+
+class WordPressFlaskChatbot {
+    private $plugin_path;
+    private $plugin_url;
+
     public function __construct() {
-        $this->api_url = get_site_url() . '/query';        ## GETS THE URL OF THE SITE THIS PLUGIN IS PLUGGED UPON ##
+        $this->plugin_path = plugin_dir_path(__FILE__);
+        $this->plugin_url = plugin_dir_url(__FILE__);
+        
+        add_action('wp_enqueue_scripts', array($this, 'enqueue_scripts'));
         add_action('wp_footer', array($this, 'render_chatbot'));
         add_shortcode('chatbot', array($this, 'chatbot_shortcode'));
+        
+        // Add AJAX handlers
+        add_action('wp_ajax_chatbot_query', array($this, 'handle_query'));
+        add_action('wp_ajax_nopriv_chatbot_query', array($this, 'handle_query'));
+    }
+
+    public function enqueue_scripts() {
+        wp_enqueue_style(
+            'wordpress-chatbot',
+            $this->plugin_url . 'assets/css/wordpress-chatbot.css',
+            array(),
+            '1.0.0'
+        );
+
+        wp_enqueue_script(
+            'wordpress-chatbot',
+            $this->plugin_url . 'assets/js/wordpress-chatbot.js',
+            array('jquery'),
+            '1.0.0',
+            true
+        );
+
+        wp_localize_script('wordpress-chatbot', 'chatbotSettings', array(
+            'ajax_url' => admin_url('admin-ajax.php'),
+            'site_url' => get_site_url(),
+            'flask_url' => 'http://localhost:5000' // Configure this based on your Flask app URL
+        ));
     }
 
     public function render_chatbot() {
-        $wordpress_base_url = get_site_url();
-        ?>
-        <div id="chatbot-container"></div>
-        <script>
-            function processQuery(query) {
-                fetch('<?php echo $this->api_url; ?>', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ query: query })
-                })
-                .then(response => response.json())
-                .then(data => {
-                    // Display the chatbot's response
-                    document.getElementById('chatbot-container').innerHTML = data.final_response;
-                })
-                .catch(error => {
-                    console.error('Error processing query:', error);
-                });
-            }
-        </script>
-        <?php
+        include $this->plugin_path . 'templates/chatbot.php';
     }
 
-    public function chatbot_shortcode($atts, $content = null) {
+    public function chatbot_shortcode() {
         ob_start();
         $this->render_chatbot();
         return ob_get_clean();
     }
+
+    public function handle_query() {
+        $query = sanitize_text_field($_POST['query']);
+        
+        // Make request to Flask app
+        $response = wp_remote_post('http://localhost:5000/query', array(
+            'body' => json_encode(array('query' => $query)),
+            'headers' => array('Content-Type' => 'application/json'),
+        ));
+
+        if (is_wp_error($response)) {
+            wp_send_json_error('Failed to connect to chatbot service');
+        }
+
+        $body = wp_remote_retrieve_body($response);
+        wp_send_json_success(json_decode($body));
+    }
 }
 
-// Create the Flask app with the Wordpress base URL
-$app = create_app(get_site_url());
-
-new ChatbotPlugin();
-?>
+new WordPressFlaskChatbot();
