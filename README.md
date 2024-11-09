@@ -1,7 +1,7 @@
 ## RAG CHATBOT FOR WORDPRESS WEBSITES
 
 
-
+[View the PDF](Explanation.pdf)
 
 ### ------------------------------------------------
 
