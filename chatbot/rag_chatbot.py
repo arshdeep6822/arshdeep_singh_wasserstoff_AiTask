@@ -99,8 +99,4 @@ class RAGChatbot:
             thought_steps
         )
 
-        return {
-            'initial_response': initial_response,
-            'thought_steps': thought_steps,
-            'final_response': final_response
-        }
+        return final_response
