@@ -9,9 +9,9 @@
 ### THE KEY COMPONENTS ARE - 
 
 
-**1. Chatbot as a package:**
+**1. Wordpress Plugin:**
 
-The chatbot code is packaged as a reusable Python package that can be installed using setup.py.
+The Wordpress plugin is using Flask application of the chatbot to be plugged in to any wordpress app , and it responds to queries made by the user. The wordpress Plugin also retrieves the dymnamic url of the site the chatbot is plugged to and gives it to the Flask app that initilises the chtabot and fetches the sites content
 
 
 
@@ -27,9 +27,11 @@ It recieves the chatbot's responses from the Flask application and display them 
 
 
 
-**3. WordPress RAG Chatbot:**
+**3. RAG Chatbot as a PAckage:**
 
-A sophisticated chatbot that combines Retrieval-Augmented Generation (RAG) with Chain of Thought reasoning to provide intelligent responses based on WordPress content. The chatbot fetches content from WordPress sites, processes it through various embedding and search mechanisms, and generates well-reasoned responses using OpenAI's GPT models.
+The chatbot code is packaged as a reusable Python package that can be installed using setup.py 
+
+It is a sophisticated chatbot that combines Retrieval-Augmented Generation (RAG) with Chain of Thought reasoning to provide intelligent responses based on WordPress content. The chatbot fetches content from WordPress sites, processes it through various embedding and search mechanisms, and generates well-reasoned responses using OpenAI's GPT models.
 
 
 The system consists of several key components working together:
