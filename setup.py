@@ -14,7 +14,8 @@ setup(
         'langchain',
         'langchain_community',
         'openai',
-        'python-dotenv'
+        'python-dotenv',
+        'six'
     ],
     author='Arshdeep Singh',
     author_email='deeparsh618@gmail.com',
