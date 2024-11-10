@@ -4,6 +4,7 @@
 [PDF FOR THE EXPLANATION](Explanation.pdf)
 
 ### ------------------------------------------------
+<img width="1023" alt="Screenshot 2024-11-10 at 12 26 43 AM" src="https://github.com/user-attachments/assets/e59a6c73-b36d-401d-a3e6-44281c845001">
 
 
 ### THE KEY COMPONENTS ARE - 
